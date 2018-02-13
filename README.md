@@ -1,2 +1,2 @@
-# Hangman-Game
-Hangman Game
+# Psychic-Game
+Psychic Game
