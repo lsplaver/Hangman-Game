@@ -77,8 +77,72 @@ function initLayout() {
     idRemainingPlayerGuesses.textContent = "Guesses Left: "; // + remainingGuesses.toString();
 
     idCurrentGuesses.textContent = "Your Guesses So Far: "; // + playerGuesses.toString();
-}
+
+
 var x = "";
+key = new KeyboardEvent("key");
+
+// x = main.onkeyup().key();
+document.addEventListener("keyup",(event) => {
+    const keyName = event.key;
+
+    // LETTER_ARRAY.forEach(keyName, LETTER_ARRAY.length, LETTER_ARRAY[]) {
+    for (var x = 0; x < LETTER_ARRAY.length; x++)
+        if ((keyName === LETTER_ARRAY[x].charAt()) && (keyName === winningLetter)) {
+            if (remainingGuesses >= 0) {
+                alert("You correctly guessed the letter, you win this round");
+                playerTotalWins ++;
+                idPlayWin2.textContent = "Wins: " + playerTotalWins;
+                idLosses.textContent = "Losses: " + playerTotalLosses;
+                remainingGuesses = 10;
+                idRemainingPlayerGuesses.textContent = "Guesses Left: " + remainingGuesses;
+                // playerGuesses.forEach(playerGuesses.length, playerGuesses[]) {
+                for (var y = 0; y < playerGuesses; y++) {
+                    console.log("Remaining entries in playerGuesses before shift: " + playerGuesses.toString());
+                    playerGuesses.shift();
+                    console.log("Remaining entries in playerGuesses after shift: " + playerGuesses.toString());
+                }
+                idCurrentGuesses.textContent = "Your Guesses So Far: " + playerGuesses.toString();
+                return; // break;
+            }
+            else if ((keyName === LETTER_ARRAY[x]) && (!(keyName === winningLetter))) {
+                if (remainingGuesses >= 0) {
+                    idPlayWin2.textContent = "Wins: " + playerTotalWins;
+                    idLosses.textContent = "Losses: " + playerTotalLosses;
+                    idRemainingPlayerGuesses.textContent = "Guesses Left: " + remainingGuesses;
+                    idCurrentGuesses.textContent = "Your Guesses So Far: " + playerGuesses.toString();
+                    return; // break;
+                }
+                else {
+                    alert("You are out of guesse, syou lost this round");
+                    playerTotalLosses ++;
+                    idPlayWin2.textContent = "Wins: " + playerTotalWins;
+                    idLosses.textContent = "Losses: " + playerTotalLosses;
+                    remainingGuesses = 10;
+                    idRemainingPlayerGuesses.textContent = "Guesses Left: " + remainingGuesses;
+                    // playerGuesses.forEach(playerGuesses.length, playerGuesses[]) {
+                    for (var z = 0; 0 < playerGuesses.length; z++) {
+                        console.log("Remaining entries in playerGuesses before shift: " + playerGuesses.toString());
+                        playerGuesses.shift();
+                        console.log("Remaining entries in playerGuesses after shift: " + playerGuesses.toString());
+                    }
+                    idCurrentGuesses.textContent = "Your Guesses So Far: " + playerGuesses.toString();
+                    return; // break;
+                }
+            }
+            else {
+                alert("You pressed an invalid key.  Please press one of the letter keys");
+                return; // break;
+            }
+        remainingGuesses --;
+        }
+    }, false);
+
+// main.onkeyup.KeyboardEvent(key)
+
+// main.addEventListener("keyup", function (event)) {
+//     LETTER_ARRAY.forEach()
+// }
 
 // if (!(main.onkeyup == null)) {
     x = main.onclick; // .addEventListener("keyup", guess());
@@ -90,3 +154,4 @@ function guess() {
     x = "";
 }
 
+}
