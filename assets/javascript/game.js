@@ -69,12 +69,12 @@ function initLayout() {
     // igTies = document.getElementById("playerWins");
     var idWins = document.getElementById("playerWins");
     var idPlayWin2 = document.getElementById("playerWins2");
-    idPlayWin2.textContent = "Wins: ";
+    idPlayWin2.textContent = "Wins: " + 0;
     // idWins.textContent = "Wins: "; // + playerTotalWins.toString();
 
-    idLosses.textContent = "Losses: "; // + playerTotalLosses.toString();
+    idLosses.textContent = "Losses: " + 0; // + playerTotalLosses.toString();
 
-    idRemainingPlayerGuesses.textContent = "Guesses Left: "; // + remainingGuesses.toString();
+    idRemainingPlayerGuesses.textContent = "Guesses Left: " + 10; // + remainingGuesses.toString();
 
     idCurrentGuesses.textContent = "Your Guesses So Far: "; // + playerGuesses.toString();
 
